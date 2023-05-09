@@ -10,8 +10,7 @@ function removeProject(projectName) {
     for (let i = 0; i < projectList.length; i++) {
         if (projectList[i].projectName === projectName) {
           projectList.splice(i, 1);
-          console.log("Project ${projectName} removed.")
-          break;
+          console.log("Project ${projectName} removed.");
         }
       }
 }
@@ -20,7 +19,8 @@ function accessProjects(projectName, method, ...args) {
     for (let i = 0; i < projectList.length; i++) {
         if (projectList[i].projectName === projectName) {
             projectList[i][method](...args);
-        }
+            console.log(`${projectName} ${method}`)
+        } 
         console.log('not found proj');
     }
 }
@@ -61,6 +61,16 @@ function createProject(name, description, dueDate) {
           }
         }
 
+    function editTask(taskName, taskKey, newValue){
+        for (let i = 0; i < projectTasks.length; i++) {
+            if (projectTasks[i].taskName === taskName) {
+                projectTasks[i][taskKey] = newValue; 
+                console.log(`${taskKey} from ${taskName} changed to ${newValue}`);
+                break;
+            } console.log('task not found')
+        }    
+    }
+
 // getter
     function getProject() {
         return {projectName, projectDescription, projectDueDate};
@@ -77,6 +87,7 @@ function createProject(name, description, dueDate) {
         projectTasks,
         addNewTask,
         removeTask,
+        editTask,
         getTasks,
         getProject
     }
