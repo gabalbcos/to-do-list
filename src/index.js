@@ -1,5 +1,3 @@
-function newProjectList() {
-let projectList = [];
 
 function addNewProject(name, description, dueDate) {
         const newProject = createProject(name, description, dueDate);
@@ -13,13 +11,8 @@ function removeProject(projectName) {
 function getProjectList() {
         return projectList;
     }
-    return {
-        projectList,
-        addNewProject,
-        removeProject,
-        getProjectList
-    }
-}
+ 
+
 // project class
 function createProject(name, description, dueDate) {
         let projectName = name;
@@ -34,7 +27,7 @@ function createProject(name, description, dueDate) {
     };
 
     function removeTask(taskName) {
-        projectTasks = projectTasks.filter(task => task.taskName !== taskName);
+        projectTasks.filter(task => task.taskName !== taskName);
     }
 // getter
     function getProject() {
@@ -46,6 +39,10 @@ function createProject(name, description, dueDate) {
     }
 
     return {
+        projectName,
+        projectDescription,
+        projectDueDate,
+        projectTasks,
         addNewTask,
         removeTask,
         getTasks,
@@ -70,20 +67,13 @@ function createTask(name, description, dueDate, priority, notes) {
 
 
 // logic to access the project inside the array
-function addTaskToProject(projectName, method, ...args) {
-  const project = projectList.find(project => project.getProject().name === projectName);
-  if (project) {
-    project[method](...args);
-    console.log(`Task added to project: ${projectName}`);
-  } else {
-    console.log(`Project not found: ${projectName}`);
-  }
-}
 
 
+let project1 = createProject('primeiro','testar essa bosta','never');
+console.log(project1)
 
-addNewProject('pum', 'soltar pum', 10/10/02);
-addNewProject('xixi', 'fazer xixi', 09/12/02);
+project1.addNewTask('teste1', 'tentar add uma tarefa', 'hoje', 'high', 'nope');
+console.log(project1.getTasks())
 
-console.log(projectList);
+
 
