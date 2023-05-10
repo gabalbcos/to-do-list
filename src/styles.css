@@ -1,0 +1,33 @@
+* {
+
+}
+
+html {
+    box-sizing: border-box;
+
+}
+
+header {
+    border: 2px solid green;
+    padding: 0 0 0 1rem;
+}
+
+main {
+    border: 2px solid red;
+    height: 80vh;
+    display: flex;
+}
+
+.content {
+    width: 80%;
+    border: 2px solid blue;
+}
+
+.sidebar {
+    width: 20%;
+    border: 2px solid yellow;
+}
+
+footer {
+    border: 2px solid green;
+}

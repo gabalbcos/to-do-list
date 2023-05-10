@@ -1,16 +1,17 @@
 function projectsFiles() {
     let projectList = [];
 
-function addNewProject(name, description, dueDate) {
-        const newProject = createProject(name, description, dueDate);
+function addNewProject(projectName, description, dueDate) {
+        const newProject = createProject(projectName, description, dueDate);
         projectList.push(newProject);
+        console.log(`${projectName} added to project list`);
 }
 
 function removeProject(projectName) {
     for (let i = 0; i < projectList.length; i++) {
         if (projectList[i].projectName === projectName) {
           projectList.splice(i, 1);
-          console.log("Project ${projectName} removed.");
+          console.log(`Project ${projectName} removed.`);
         }
       }
 }
@@ -19,15 +20,22 @@ function accessProjects(projectName, method, ...args) {
     for (let i = 0; i < projectList.length; i++) {
         if (projectList[i].projectName === projectName) {
             projectList[i][method](...args);
-            console.log(`${projectName} ${method}`)
+            console.log(`${projectName}: ${method} with ${args}`);
         } 
         console.log('not found proj');
     }
 }
 
 function getProjectList() {
-        return projectList;
+    function selectKeys(project){
+        const {projectName, projectDescription, projectDueDate} = project;
+        return {projectName, projectDescription, projectDueDate};
     }
+
+    const projectListShort = projectList.map(selectKeys);
+    return projectListShort;
+}
+
     return {
         projectList,
         addNewProject,
@@ -46,16 +54,17 @@ function createProject(name, description, dueDate) {
         let projectTasks = [];
 
     
-    function addNewTask(name, description, dueDate, priority, notes) {
-        const newTask = createTask(name, description, dueDate, priority, notes);
+    function addNewTask(taskName, description, dueDate, priority, notes) {
+        const newTask = createTask(taskName, description, dueDate, priority, notes);
         projectTasks.push(newTask);
-        console.log(`Task ${name} added to ${projectName}`);
+        console.log(`Task ${taskName} added to ${projectName}`);
     };
 
     function removeTask(taskName) {
         for (let i = 0; i < projectTasks.length; i++) {
             if (projectTasks[i].taskName === taskName) {
               projectTasks.splice(i, 1);
+              console.log(`${taskName} removed from ${projectName}`);
               break;
             }
           }
@@ -65,7 +74,7 @@ function createProject(name, description, dueDate) {
         for (let i = 0; i < projectTasks.length; i++) {
             if (projectTasks[i].taskName === taskName) {
                 projectTasks[i][taskKey] = newValue; 
-                console.log(`${taskKey} from ${taskName} changed to ${newValue}`);
+                console.log(`${projectName}: ${taskKey} from ${taskName} changed to ${newValue}`);
                 break;
             } console.log('task not found')
         }    
@@ -108,13 +117,14 @@ function createTask(name, description, dueDate, priority, notes) {
           };
 }
 
-/*
+
 // logic to access the project inside the array
 const projectsFileD = projectsFiles();
 projectsFileD.addNewProject('proj1', 'test this', '12/05');
+projectsFileD.addNewProject('proj2', 'test this 2', '11/05');
+projectsFileD.addNewProject('proj3', 'test this 3', '14/05');
 console.log(projectsFileD.getProjectList())
 
 
 projectsFileD.projectList[0]
-projectsFileD.accessProjects('proj1',addNewTask, 'soltar pum', 'ir ao banheiro soltar pum', '22/05', 'high', 'no notes')
-*/
+projectsFileD.accessProjects('proj1','addNewTask', 'soltar pum', 'ir ao banheiro soltar pum', '22/05', 'high', 'no notes')
