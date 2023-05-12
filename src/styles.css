@@ -31,3 +31,16 @@ main {
 footer {
     border: 2px solid green;
 }
+
+
+.list-menu {
+    transition: all 0.5s;
+    overflow:hidden;
+    position: absolute;
+    max-height: 200px;
+}
+
+
+.hidden {
+    max-height: 0;
+}
