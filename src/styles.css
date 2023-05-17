@@ -7,48 +7,31 @@ html {
 
 }
 
-header {
-    border: 2px solid green;
-    padding: 0 0 0 1rem;
-}
+
 
 main {
-    border: 2px solid red;
-    height: 80vh;
+
+    height: 90vh;
     display: flex;
 }
 
 .content {
     width: 80%;
-    border: 2px solid blue;
+ 
     display: flex;
     gap: 25px;
     padding: 25px;
 }
 
-.task {
-    border: 2px solid green;
-    height: 300px;
-}
 
 .sidebar {
+    padding-top: 25px;
     width: 20%;
-    border: 2px solid yellow;
 }
 
 footer {
-    border: 2px solid green;
-}
-
-
-.list-menu {
-    transition: all 0.5s;
-    overflow:hidden;
-    position: absolute;
-    max-height: 200px;
-}
-
-
-.hidden {
-    max-height: 0;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    height: 4vh;
 }
