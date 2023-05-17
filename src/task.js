@@ -1,4 +1,4 @@
-export function createTask(name, description, dueDate, priority, notes) {
+function createTask(name, description, dueDate, priority, notes) {
     let taskName = name;
     let taskDescription = description;
     let taskDueDate = dueDate;
@@ -12,3 +12,4 @@ export function createTask(name, description, dueDate, priority, notes) {
         taskNotes
       };
 }
+

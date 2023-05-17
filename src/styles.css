@@ -21,6 +21,14 @@ main {
 .content {
     width: 80%;
     border: 2px solid blue;
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+}
+
+.task {
+    border: 2px solid green;
+    height: 300px;
 }
 
 .sidebar {
