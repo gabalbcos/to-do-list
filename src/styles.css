@@ -38,6 +38,15 @@ main {
     padding: 25px;
     gap: 15px;
     width: 300px;
+    border-radius: 15px;
+}
+
+.close-btn {
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    margin-left: 90%;
+    border-radius: 50%;
 }
 
 .cards {
